@@ -1,0 +1,63 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-clip-rotate"
+  [fullScreen]="true"
+>
+  <p style="color: white; font-size: 20px">Loading...</p></ngx-spinner
+>
+<div class="row justify-content-around align-items-center">
+  <div class="col-md-7">
+    <div class="card mb-24 shadow-lg rounded-4">
+      <div class="card-header">
+        <h4>Create Your Signature</h4>
+      </div>
+      <div class="card-body">
+        <div class="example">
+          <div class="col-md-12">
+            <div class="btns">
+              <button
+                class="btn btn-outline-primary rounded-2 mx-2"
+                (click)="clear()"
+              >
+                Clear
+              </button>
+              <div class="d-flex align-items-center justify-content-center">
+                <b class="card-text" style="width: 170px">Full Name</b>
+                <input
+                  class="form-control"
+                  id="last-name-c-3"
+                  type="text"
+                  placeholder="Full name"
+                />
+              </div>
+              <button
+                class="btn btn-outline-primary rounded-2 mx-2"
+                (click)="saveSVG()"
+              >
+                Save SVG
+              </button>
+            </div>
+            <signature-pad
+              #signature
+              [options]="signaturePadOption"
+              (drawStart)="drawStart($event)"
+              (drawEnd)="drawComplete($event)"
+            ></signature-pad>
+            <div class="text-center">
+              <hr />
+              <span class="text-dark fw-bold">Draw Signature</span>
+            </div>
+            <button
+              class="btn btn-lg btn-primary shadow rounded-2 px-4"
+              (click)="saveSVG()"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

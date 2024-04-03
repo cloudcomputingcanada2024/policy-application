@@ -1,0 +1,288 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-24 rounded-4 shadow">
+            <div class="card-header">
+              <div class="col-md-12">
+                <h5>Third party determination</h5>
+                <p>(applicable to universal life insurance products)</p>
+              </div>
+            </div>
+            <div class="card-header bg-white p-4">
+              <div class="col-12">
+                <div class="bg-light p-4 rounded-4 shadow mb-4">
+                  <div>
+                    <p>
+                      <b>(1) </b>
+                      In accordance with the Proceeds of Crime (Money
+                      Laundering) and Terrorist Financing Act and its
+                      regulations, the financial security advisor /
+                      representative must take reasonable measures to determine,
+                      with regard to the present application, if the
+                      policyowner(s) is (are) acting on behalf of a third party
+                      (individual or entity).
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(2) </b>
+                      When you must determine whether a “third party” is
+                      involved, it is not about who “owns” the money, but rather
+                      about who gives instructions to deal with the money. If
+                      the individual in front of you is acting on someone else’s
+                      instructions, that someone else is the third party.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(3) </b>
+                      When the premium payer is a different person or entity
+                      than the policyowner(s), the payer is considered a third
+                      party and the section below must be completed.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="example">
+                <div class="tab-content rounded-bottom">
+                  <div
+                    class="tab-pane p-3 active preview"
+                    role="tabpanel"
+                    id="preview-1000"
+                  >
+                    <div class="row g-3">
+                      <div class="col-md-12">
+                        <div class="bg-white mb-3 p-4 rounded-4 shadow mb-4">
+                          <strong>
+                            Is (are) the policyowner(s) acting on behalf of a
+                            third party (individual or entity) or is there a
+                            third party to this contract?
+                          </strong>
+                        </div>
+                        <div>
+                          <label class="form-label">Select option</label>
+                          <div class="third-party-select-option">
+                            <select
+                              class="form-select form-select-lg mb-3"
+                              aria-label=".form-select-lg example"
+                              formControlName="individualOrEntity"
+                              (change)="selectEntity($event)"
+                            >
+                              <option value="" selected disabled>
+                                --Select option--
+                              </option>
+                              <option value="">N/A</option>
+                              <option value="Propriétaire_entity_yes">
+                                Yes, complete the “Third party identification”
+                                section below.
+                              </option>
+                              <option value="Propriétaire_entity_no">No</option>
+                              <option
+                                value="Propriétaire_entity_it_is_impossible"
+                                title="It is impossible to determine whether the policyowner(s) is (are) acting on behalf of a third party, but I have reasonable grounds to believe that he/she (they) is (are). complete the “Third party identification” section below."
+                              >
+                                It is impossible to determine whether the
+                                policyowner(s) is (are) acting on behalf of a
+                                third party
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="bg-white mb-3 p-4 rounded-4 shadow">
+                          <strong>
+                            Is the person or entity paying the premiums/amounts
+                            in the insurance contract different from the
+                            policyowner(s)?
+                          </strong>
+                        </div>
+                        <div>
+                          <label class="form-label">Select option</label>
+                          <div class="third-party-select-option">
+                            <select
+                              class="form-select form-select-lg mb-3"
+                              aria-label=".form-select-lg example"
+                              formControlName="premium"
+                              (change)="selectPremiun($event)"
+                            >
+                              <option value="" selected disabled>
+                                --Select option--
+                              </option>
+                              <option value="">N/A</option>
+                              <option value="Entité paiement 1">Yes</option>
+                              <option value="Entité paiement 2">No</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div
+                          class="bg-color text-white mb-3 text-center p-4 rounded-4 shadow"
+                        >
+                          <h5>Third party identification (if applicable)</h5>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <label class="form-label" for="name-of-third-pary"
+                          >Name of the third party</label
+                        >
+                        <input
+                          class="form-control"
+                          id="name-of-third-pary"
+                          type="text"
+                          placeholder="Name of the third party"
+                          formControlName="NOM_TIERS"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label class="form-label" for="dob-third-pary"
+                          >Date of birth (if third party is an
+                          individual)</label
+                        >
+                        <input
+                          class="form-control"
+                          id="dob-third-pary"
+                          type="date"
+                          formControlName="DobThirdParty"
+                          (change)="dobThridParty($event)"
+                        />
+                      </div>
+                      <div class="col-md-8">
+                        <label class="form-label" for="full-permanent-address"
+                          >Full permanent address of the third party</label
+                        >
+                        <input
+                          class="form-control"
+                          id="full-permanent-address"
+                          type="text"
+                          placeholder="Full permanent address of the third party"
+                          formControlName="ADRESSE_TIERS"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label
+                          class="form-label"
+                          for="telephone-number-of-third-pary"
+                          >Telephone number of the third party</label
+                        >
+                        <input
+                          class="form-control"
+                          id="telephone-number-of-third-pary"
+                          type="tel"
+                          placeholder="(e.g. 6045555555)"
+                          formControlName="TEL_TIERS"
+                        />
+                      </div>
+
+                      <div class="col-md-8">
+                        <label
+                          class="form-label"
+                          for="principal-business-third-party"
+                          >Principal business or occupation: provide complete
+                          and detailed information, including the job title, the
+                          field of activity,</label
+                        >
+                        <input
+                          class="form-control"
+                          id="principal-business-third-party"
+                          type="text"
+                          placeholder="Principal business or occupation: provide complete and detailed information, including the job title, the field of activity,"
+                          formControlName="ACTIVITÉ_PRINCIPALE_TIERS"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label
+                          class="form-label"
+                          for="relationship-between-third-party"
+                          >Relationship between the third party and the
+                          policyowner(s)</label
+                        >
+                        <input
+                          class="form-control"
+                          id="relationship-between-third-party"
+                          type="text"
+                          placeholder="Relationship between the third party and the policyowner(s)"
+                          formControlName="LIEN_TIERS_PROPS"
+                        />
+                      </div>
+                      <div class="col-md-12 bg-light">
+                        <p>
+                          the name of the employer and the employment status
+                          (employee, executive, owner, self-employed, etc.); if
+                          retired, provide the details on the last occupation
+                          prior to retirement
+                        </p>
+                      </div>
+                      <div class="col-md-12">
+                        <h4>If the third party is an entity:</h4>
+                      </div>
+                      <div class="col-md-4">
+                        <label class="form-label" for="business-number"
+                          >Business number</label
+                        >
+                        <input
+                          class="form-control"
+                          id="business-number"
+                          type="text"
+                          placeholder="Business number"
+                          formControlName="NUM_ENTREPRISE_TIERS"
+                        />
+                      </div>
+                      <div class="col-md-8">
+                        <label class="form-label" for="place-of-issuance"
+                          >Place of issuance of its certificate of
+                          constitution</label
+                        >
+                        <input
+                          class="form-control"
+                          id="place-of-issuance"
+                          type="text"
+                          placeholder="Place of issuance of its certificate of constitution"
+                          formControlName="LIEU_DELIVRANCE_TIERS"
+                        />
+                      </div>
+                      <div class="col-md-12">
+                        <label class="form-label" for="above-mentioned"
+                          >If you cannot obtain the above-mentioned information
+                          on the third party, provide the reasons in the space
+                          below:</label
+                        >
+                        <input
+                          class="form-control"
+                          id="above-mentioned"
+                          type="text"
+                          placeholder="If you cannot obtain the above-mentioned information on the third party, provide the reasons in the space below:"
+                          formControlName="NON_RENSEIGNEMENTS_TIERS"
+                        />
+                      </div>
+                      <div class="col-md-12">
+                        <label class="form-label" for="determine-policyowner"
+                          >If you cannot determine if the policyowner is acting
+                          on behalf of a third party, but have reasonable
+                          grounds to suspect that he is, provide the reasons in
+                          the space below:</label
+                        >
+                        <input
+                          class="form-control"
+                          id="determine-policyowner"
+                          type="text"
+                          placeholder="If you cannot determine if the policyowner is acting on behalf of a third party, but have reasonable grounds to suspect that he is, provide the reasons in the space below:"
+                          formControlName="NON_DETERMINER_TIERS"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,959 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-24 shadow rounded-4">
+            <div class="card-header">
+              <div class="col-md-12">
+                <h5>
+                  Beneficiary(ies) – life insurance, critical illness rider and
+                  critical illness insurance
+                </h5>
+              </div>
+            </div>
+            <div class="card-header bg-white p-4">
+              <div class="col-12">
+                <div class="bg-light p-4 rounded-4 shadow mb-4">
+                  <div>
+                    <p>
+                      <b>(1)</b>
+                      Indicate both the first name and the last name of the
+                      person who will receive the sums insured when they become
+                      payable under the chosen benefits. If there is no
+                      beneficiary designation, the sums insured will be payable
+                      to the policyowner(s) or their estate(s), as the case may
+                      be.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(2) </b>
+                      <strong
+                        >If more than one beneficiary is designed, the total
+                        unit allocation should equal 100%.
+                      </strong>
+                      If the allocated percentages are not indicated, the sums
+                      insured will be divided evenly among the surviving
+                      eligible beneficiaries.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(3)</b>
+                      Beneficiary designations are revocable, unless stated
+                      otherwise. In Quebec however, the designation of a legally
+                      married or civil union spouse of the policyowner is
+                      irrevocable unless stated to be revocable.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(4)</b>
+                      If the beneficiary predeceases the proposed insured, the
+                      sums insured are payable to the contingent beneficiary
+                      upon the death of the proposed insured.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(5)</b>
+                      In Quebec, unless otherwise indicated in a court judment,
+                      the surviving parent is always the legal tutor of the
+                      child.
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(6)</b>
+                      When a minor child is irrevocably designated, we must
+                      obtain a court order or wait for the child to reach
+                      majority before proceeding with all contract
+                      modifications, including partial withdrawals, loans,
+                      redemptions and other related changes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="example">
+                <div class="row g-3">
+                  <div class="beneficiary-for">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div class="bg-color mb-3 p-4 rounded-4 shadow mb-4">
+                            <h5 class="text-white">
+                              Beneficiary(ies) for life insurance
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <label class="form-label" for="first-name-1"
+                                >First name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-1"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE 1"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="last-name-1"
+                                >Last name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-1"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE 1"
+                              />
+                            </div>
+                            <div class="col-md-4">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-1"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                >Relationship to the proposed...</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-1"
+                                type="text"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                placeholder="Relationship to the proposed..."
+                                formControlName="LIEN AVEC LASSURÉ au Québec lien avec le propriétaire_1"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="select-one"
+                                >Select one</label
+                              >
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                id="select-one"
+                                formControlName="selectOne"
+                                (change)="selectOne($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_1">Revocable</option>
+                                <option value="Irrevocable_1">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="share-total-1"
+                                >Share % Total 100%</label
+                              >
+                              <input
+                                class="form-control"
+                                id="share-total-1"
+                                type="text"
+                                placeholder="Share % total 100%"
+                                formControlName="fill_1"
+                              />
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="first-name-1"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE 2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="last-name-1"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE 2"
+                              />
+                            </div>
+                            <div class="col-md-4">
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-1"
+                                type="text"
+                                title="Relationship to the proposed (in Quebec, relationship
+                          to the policyholder)"
+                                placeholder="Relationship to the proposed..."
+                                formControlName="LIEN AVEC LASSURÉ au Québec lien avec le propriétaire_2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                formControlName="selectTwo"
+                                (change)="selectTwo($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_2">Revocable</option>
+                                <option value="Irrevocable_2">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="share-total-1"
+                                type="text"
+                                placeholder="Share % total 100%"
+                                formControlName="fill_2"
+                              />
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="first-name-1"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE 3"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="last-name-1"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE 3"
+                              />
+                            </div>
+                            <div class="col-md-4">
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-1"
+                                type="text"
+                                title="Relationship to the proposed (in Quebec, relationship
+                          to the policyholder)"
+                                placeholder="Relationship to the proposed..."
+                                formControlName="LIEN AVEC LASSURÉ au Québec lien avec le propriétaire_3"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                formControlName="selectThree"
+                                (change)="selectThree($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_3">Revocable</option>
+                                <option value="Irrevocable_3">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="share-total-1"
+                                type="text"
+                                placeholder="Share % total 100%"
+                                formControlName="fill_3"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="contingent-beneficiary">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div class="bg-color p-4 rounded-4 shadow mb-4">
+                            <h5 class="text-white">
+                              Contingent(s) beneficiary(ies)
+                            </h5>
+                            <p class="text-white">
+                              <b>(1)</b> In case of death of the
+                              beneficiary(ies) designated above, the percentage
+                              must be equivalent.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <label class="form-label" for="first-name-2"
+                                >First name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-2"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE 4"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="last-name-2"
+                                >Last name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-2"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE 4"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-2"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                >Relationship to the proposed...</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-2"
+                                type="text"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                placeholder="Relationship to the proposed..."
+                                formControlName="LIEN AVEC LASSURÉ au Québec lien avec le propriétaire_4"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="select-two"
+                                >Select one</label
+                              >
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                id="select-two"
+                                formControlName="selectFour"
+                                (change)="selectFour($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_4">Revocable</option>
+                                <option value="Irrevocable_4">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="first-name-2"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE 5"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="last-name-1"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE 5"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-1"
+                                type="text"
+                                title="Relationship to the proposed (in Quebec, relationship
+                          to the policyholder)"
+                                placeholder="Relationship to the proposed..."
+                                formControlName="LIEN AVEC LASSURÉ au Québec lien avec le propriétaire_5"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                formControlName="selectFive"
+                                (change)="selectFive($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_5">Revocable</option>
+                                <option value="Irrevocable_5">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="first-name-1"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE 6"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <input
+                                class="form-control"
+                                id="last-name-1"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE 6"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-1"
+                                type="text"
+                                title="Relationship to the proposed (in Quebec, relationship
+                          to the policyholder)"
+                                placeholder="Relationship to the proposed..."
+                                formControlName="LIEN AVEC LASSURÉ au Québec lien avec le propriétaire_6"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                formControlName="selectSix"
+                                (change)="selectSix($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_6">Revocable</option>
+                                <option value="Irrevocable_6">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="trustee-for-a-minor-beneficiary mb-5">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div class="bg-color p-4 rounded-4 shadow mb-4">
+                            <h5 class="text-white">
+                              Trustee for a minor beneficiary (not applicable in
+                              Quebec)
+                            </h5>
+                            <p class="text-white">
+                              <b>(1)</b> When a minor is designated as
+                              beneficiary, it is suggested that a trust be
+                              constituted for claims purposes (not applicable in
+                              Quebec).
+                            </p>
+                            <p class="text-white">
+                              <b>(2)</b>
+                              If a trust is constituted, complete the
+                              information below.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <label class="form-label" for="first-name-3"
+                                >First name of minor beneficiary</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-3"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="NOM DU BÉNÉFICIAIRE MINEUR"
+                              />
+                            </div>
+                            <div class="col-md-3">
+                              <label class="form-label" for="last-name-3"
+                                >Last name of minor beneficiary</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-3"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="PRÉNOM DU BÉNÉFICIAIRE MINEUR"
+                              />
+                            </div>
+                            <div class="col-md-3">
+                              <label
+                                class="form-label"
+                                for="last-name-trustee-3"
+                                >Last and first name of trustee</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-trustee-3"
+                                type="text"
+                                placeholder="Last and first name of trustee"
+                                formControlName="NOM COMPLET FIDUCIAIRE"
+                              />
+                            </div>
+                            <div class="col-md-3">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-3"
+                                >Relationship to the proposed</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-3"
+                                type="text"
+                                placeholder="Relationship to the proposed"
+                                formControlName="LIEN ASSURÉ"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-24 shadow rounded-4">
+            <div class="card-header">
+              <div class="col-md-12">
+                <div class="d-flex justify-content-between">
+                  <h5>
+                    Beneficiary(ies) – life insurance, critical illness rider
+                    and critical illness insurance (continued)
+                  </h5>
+
+                  <div
+                    class="d-flex d-flex align-items-center justify-content-center"
+                  >
+                    <button
+                      class="btn btn-lg btn-success bg-color text-white px-4 pt-2 pb-2 rounded-4 shadow"
+                      (click)="handleContinue()"
+                      [disabled]="isContinued"
+                    >
+                      Continue
+
+                      <ng-template [ngIf]="isIcon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          fill="currentColor"
+                          class="bi bi-arrow-right-circle"
+                          viewBox="0 0 16 17"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+                          />
+                        </svg>
+                      </ng-template>
+                      <ng-template [ngIf]="isLoading">
+                        <span
+                          class="spinner-border spinner-border-sm btn-loading"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Loading...</span>
+                      </ng-template>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body" *ngIf="isContinued">
+              <!-- <div class="card-body"> -->
+              <div class="example">
+                <div class="row g-3">
+                  <div class="beneficiary-for-rider">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div class="bg-color mb-3 p-4 rounded-4 shadow mb-4">
+                            <h5 class="text-white">
+                              Beneficiary for Critical Illness RIDER
+                            </h5>
+                            <p class="text-white">
+                              <b
+                                >(1) - If there is no beneficiary designation,
+                                the sums insured will be payable to the
+                                policyowner(s) for the Critical Illness
+                                Rider.</b
+                              >
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <label class="form-label" for="first-name-c-1"
+                                >Last name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-c-1"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 1"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="last-name-c-1"
+                                >First name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-c-1"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 1_2"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-c-1"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                >Relationship to the proposed (in Quebec,
+                                relationship to the policyholder)</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-c-1"
+                                type="text"
+                                placeholder="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                formControlName="LIEN AVEC LASSURÉ bénéficiaire subsidiaire_1-2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="select-c-1"
+                                >Select one</label
+                              >
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                id="select-c-1"
+                                formControlName="selectConOne"
+                                (change)="selectOneC($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Beneficiaire_AVENANT_REVOCABLE">
+                                  Revocable
+                                </option>
+                                <option
+                                  value="Beneficiaire_AVENANT_Irrevocable"
+                                >
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="beneficiary-for-insurance">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div class="bg-color mb-3 p-4 rounded-4 shadow mb-4">
+                            <h5 class="text-white">
+                              Beneficiary for Critical Illness INSURANCE
+                            </h5>
+                            <p class="text-white">
+                              <b>(1)</b> If there is no beneficiary designation,
+                              the sums insured will be payable tot the
+                              policyowner(s) or their estate(s), as the case may
+                              be.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <label class="form-label" for="first-name-c-2"
+                                >Last name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-c-2"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="last-name-c-2"
+                                >First name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-c-2"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 2_2"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-c-2"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                >Relationship to the proposed (in Quebec,
+                                relationship to the policyholder)</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-c-2"
+                                type="text"
+                                placeholder="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                formControlName="LIEN AVEC LASSURÉ bénéficiaire subsidiaire_2-2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="select-con-2"
+                                >Select one</label
+                              >
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                id="select-con-2"
+                                formControlName="selectConTwo"
+                                (change)="selectTwoC($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_13">Revocable</option>
+                                <option value="Irrevocable_13">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="beneficiary-for-critical-illness">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div
+                            class="bg-color mb-3 p-1 p-4 rounded-4 shadow mb-4"
+                          >
+                            <h5 class="text-white">
+                              Beneficiary for Return of Premium on Death benefit
+                              (critical illness)
+                            </h5>
+                            <p class="text-white">
+                              <b>(1)</b> If there is no beneficiary designation,
+                              the sums insured will be payable tot the
+                              policyowner(s) or their estate(s), as the case may
+                              be.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <label class="form-label" for="first-name-c-3"
+                                >Last name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-c-3"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 3"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="last-name-c-3"
+                                >First name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-c-3"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 3_2"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-c-3"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                >Relationship to the proposed (in Quebec,
+                                relationship to the policyholder)</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-c-3"
+                                type="text"
+                                placeholder="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                formControlName="LIEN AVEC LASSURÉ bénéficiaire subsidiaire_3_2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="select-con-3"
+                                >Select one</label
+                              >
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                id="select-con-3"
+                                formControlName="selectConThree"
+                                (change)="selectThreeC($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_14">Revocable</option>
+                                <option value="Irrevocable_14">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="beneficiary-for-surrender-critical-illness">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="col-md-12">
+                          <div class="bg-color p-4 rounded-4 shadow mb-4">
+                            <h5 class="text-white">
+                              Beneficiary for Return or Premium Surrender
+                              benefits (critical illness)
+                            </h5>
+                            <p class="text-white">
+                              <b>(1)</b> If there is no beneficiary designation,
+                              the sums insured will be payable tot the
+                              policyowner(s) or their estate(s), as the case may
+                              be.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row mb-2">
+                            <div class="col-md-2">
+                              <label class="form-label" for="last-name-c-4"
+                                >Last name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="last-name-c-4"
+                                type="text"
+                                placeholder="Last name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 4"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="first-name-c-4"
+                                >First name</label
+                              >
+                              <input
+                                class="form-control"
+                                id="first-name-c-4"
+                                type="text"
+                                placeholder="First name"
+                                formControlName="BÉNÉFICIAIRE SUBSIDIAIRE 4_2"
+                              />
+                            </div>
+                            <div class="col-md-6">
+                              <label
+                                class="form-label"
+                                for="relationship-proposed-c-4"
+                                title="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                >Relationship to the proposed (in Quebec,
+                                relationship to the policyholder)</label
+                              >
+                              <input
+                                class="form-control"
+                                id="relationship-proposed-c-4"
+                                type="text"
+                                placeholder="Relationship to the proposed (in Quebec, relationship to the policyholder)"
+                                formControlName="LIEN AVEC LASSURÉ bénéficiaire subsidiaire_4-2"
+                              />
+                            </div>
+                            <div class="col-md-2">
+                              <label class="form-label" for="select-one-c-4"
+                                >Select one</label
+                              >
+                              <select
+                                class="form-select form-select-small"
+                                aria-label=".form-select-small example"
+                                id="select-one-c-4"
+                                formControlName="selectConFour"
+                                (change)="selectFourC($event)"
+                              >
+                                <option value="" selected disabled>
+                                  --Select one--
+                                </option>
+                                <option value="">N/A</option>
+                                <option value="Revocable_15">Revocable</option>
+                                <option value="Irrevocable_15">
+                                  Irrevocable
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

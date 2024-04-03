@@ -1,0 +1,9 @@
+.nav-title{
+  text-transform: capitalize !important;
+}
+.nav-group .nav-link{
+  /* padding-right: 70px !important; */
+}
+.nav-group-items .nav-link{
+  padding-left: 50px !important;
+}

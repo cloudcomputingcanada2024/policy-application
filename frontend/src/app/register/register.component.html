@@ -1,0 +1,144 @@
+<div class="row">
+  <div class="col-md-4 m-auto mt-5 text-left bg-white rounded shadow py-3">
+    <h5>Create account</h5>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group py-3">
+        <label for="user_name">Username</label>
+        <div
+          class="input-field"
+          [class.error-alert]="
+            (registerForm.controls['user_name'].dirty &&
+              registerForm.hasError('required', 'user_name')) ||
+            (user_name.invalid && user_name.touched)
+          "
+        >
+          <input
+            type="text"
+            class="form-control"
+            id="user_name"
+            aria-describedby="user_nameHelp"
+            placeholder="Enter User Name"
+            formControlName="user_name"
+          />
+        </div>
+        <span
+          class="text-danger"
+          *ngIf="
+            (registerForm.controls['user_name'].dirty &&
+              registerForm.hasError('required', 'user_name')) ||
+            (user_name.invalid && user_name.touched)
+          "
+        >
+          This field is required
+        </span>
+      </div>
+      <div class="form-group py-3">
+        <label for="exampleInputEmail1">Email address</label>
+        <div
+          class="input-field"
+          [class.error-alert]="
+            (registerForm.controls['email'].dirty &&
+              registerForm.hasError('required', 'email')) ||
+            (email.invalid && email.touched)
+          "
+        >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            formControlName="email"
+          />
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            (registerForm.controls['email'].dirty &&
+              registerForm.hasError('required', 'email')) ||
+            (email.invalid && email.touched)
+          "
+          >This field is required</small
+        >
+      </div>
+      <div class="form-group py-3">
+        <label for="exampleInputPassword1">Password</label>
+        <div
+          class="input-field"
+          [class.error-alert]="
+            (registerForm.controls['password'].dirty &&
+              registerForm.hasError('required', 'password')) ||
+            (password.invalid && password.touched)
+          "
+        >
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            (registerForm.controls['password'].dirty &&
+              registerForm.hasError('required', 'password')) ||
+            (password.invalid && password.touched)
+          "
+          >This field is required</small
+        >
+      </div>
+      <div class="form-group py-3">
+        <label for="username">Mobile Number</label>
+
+        <div
+          class="input-field"
+          [class.error-alert]="
+            (registerForm.controls['mobile_number'].dirty &&
+              registerForm.hasError('required', 'mobile_number')) ||
+            (mobile_number.invalid && mobile_number.touched)
+          "
+        >
+          <input
+            type="text"
+            class="form-control"
+            id="mobile_number"
+            aria-describedby="mobile_numberHelp"
+            placeholder="Enter mobile_number"
+            formControlName="mobile_number"
+          />
+        </div>
+        <span
+          *ngIf="
+            (registerForm.controls['mobile_number'].errors &&
+              registerForm.controls['mobile_number'].dirty) ||
+            registerForm.controls['mobile_number'].touched
+          "
+        >
+          <small class="text-danger" *ngIf="mobile_number.errors['required']">
+            This field is required
+          </small>
+          <small class="text-danger" *ngIf="mobile_number.errors['pattern']">
+            Invalid phone number
+          </small>
+        </span>
+        
+      </div>
+      <!-- <div class="form-group py-3">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="menu"
+          formControlName="menu"
+        >
+          <option selected value="">Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div> -->
+      <button type="submit" class="btn btn-success">Create account</button>
+    </form>
+  </div>
+</div>

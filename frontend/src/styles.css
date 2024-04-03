@@ -1,0 +1,81 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "ngx-toastr/toastr";
+
+@import "css/style.css";
+/* @import 'css/style.css.map'; */
+@import "css/style.min.css";
+/* @import 'css/style.min.css.map'; */
+
+@import "css/examples.min.css";
+@import "css/examples.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.bg-color {
+  background-color: #4a148c;
+}
+
+.ng-select-custom {
+  min-height: 75px !important;
+}
+.policy .ng-select .ng-select-container .ng-value-container .ng-input > input {
+  height: 75px !important;
+}
+.ng-select2.ng-value-container {
+  min-height: 75px !important;
+}
+.policy .ng-dropdown-panel {
+  min-height: 400px !important;
+}
+.policy .ng-dropdown-panel-items {
+  min-height: 400px !important;
+}
+.policy .ng-value-label {
+  padding: 17px !important;
+  font-size: 17px;
+}
+.policy .ng-value-icon {
+  padding: 17px !important;
+  font-size: 17px;
+  color: white;
+  background-color: rgba(229, 83, 83);
+}
+.policy .ng-value-icon:hover {
+  background-color: rgba(229, 83, 83) !important;
+}
+
+.preliminary-application .ng-value-icon {
+  color: white;
+  background-color: rgba(229, 83, 83);
+}
+.preliminary-application .ng-value-icon:hover {
+  background-color: rgba(229, 83, 83) !important;
+}
+
+.resident-canada
+  .ng-select
+  .ng-select-container
+  .ng-value-container
+  .ng-input
+  > input {
+  height: 75px !important;
+}
+
+.resident-canada .ng-dropdown-panel {
+  min-height: 200px !important;
+}
+.resident-canada .ng-dropdown-panel-items {
+  min-height: 200px !important;
+}
+.resident-canada .ng-value-label {
+  padding: 17px !important;
+  font-size: 17px;
+}
+.resident-canada .ng-value-icon {
+  padding: 17px !important;
+  font-size: 17px;
+  color: white;
+  background-color: rgba(229, 83, 83);
+}
+.resident-canada .ng-value-icon:hover {
+  background-color: rgba(229, 83, 83) !important;
+}

@@ -1,0 +1,6 @@
+.identity-select-option select option{
+  width: 100px !important;
+}
+.identity-select-option option{
+  width: 100% !important;
+}

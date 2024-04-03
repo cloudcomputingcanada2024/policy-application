@@ -1,0 +1,12 @@
+signature-pad {
+  background-color: #fff;
+  height: 400px;
+  width: 100%;
+}
+
+.btns {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,378 @@
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-24 rounded-4 shadow">
+          <div class="card-header">
+            <div class="col-md-12">
+              <h5>Basic information</h5>
+            </div>
+          </div>
+          <div class="card-header bg-white p-4">
+            <div class="col-12">
+              <div class="bg-light p-4 rounded-4 shadow mb-4">
+                <div>
+                  <p>
+                    <b>(1)</b>
+                    For more than 2 insureds, use additional applications as
+                    required.
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <b>(2)</b>
+                    Enter the number of the primary application on each
+                    additional application and submit all applications together.
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <b>(3)</b>
+                    <strong>
+                      Submit ALL the pages of this application, even if there is
+                      no information written on certain pages.</strong
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="example">
+              <div class="tab-content rounded-bottom">
+                <div
+                  class="tab-pane p-3 active preview"
+                  role="tabpanel"
+                  id="preview-1000"
+                >
+                  <form [formGroup]="form" (ngSubmit)="save()">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <button
+                          type="button"
+                          *ngIf="btn_application"
+                          class="btn btn-small btn-success text-white bg-color rounded-4 px-4 shadow float-end"
+                          (click)="enableSelect_application()"
+                        >
+                          Enable
+                        </button>
+
+                        <label class="form-label" for="application"
+                          >Select applications</label
+                        >
+                        <div class="preliminary-application">
+                          <ng-select
+                            bindLabel="name"
+                            bindValue="id"
+                            id="application"
+                            labelForId="form-label"
+                            [multiple]="true"
+                            placeholder="Select applications"
+                            clearAllText="Clear"
+                            formControlName="applications"
+                            (change)="select_application($event)"
+                          >
+                            <ng-option value="N/A">N/A</ng-option>
+                            <ng-option value="demande préliminaire">
+                              Preliminary application
+                            </ng-option>
+                            <ng-option value="Nouvelle proposition"
+                              >New application</ng-option
+                            >
+                          </ng-select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="language-correspondence"
+                          >Language of correspondence</label
+                        >
+                        <div class="language-correspondence">
+                          <select
+                            class="form-select form-select-small mb-3"
+                            id="language-correspondence"
+                            aria-label=".form-select-small example"
+                            formControlName="language"
+                            (change)="selectLanguage($event)"
+                          >
+                            <option value="" selected disabled>
+                              --Select option--
+                            </option>
+                            <option value="">N/A</option>
+                            <option value="LANGUE">English</option>
+                            <option value="LANGUE1">French</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="nature-of-application"
+                          >Nature of application</label
+                        >
+                        <div class="nature-of-application">
+                          <select
+                            class="form-select form-select-small mb-3"
+                            id="nature-of-application"
+                            aria-label=".form-select-small example"
+                            formControlName="natureOfApplication"
+                            (change)="selectNatureApplication($event)"
+                          >
+                            <option value="" selected disabled>
+                              --Select option--
+                            </option>
+                            <option value="">N/A</option>
+                            <option value="PRINCIPALE">Primary</option>
+                            <option value="PRINCIPALE1">
+                              Additional to application or policy no
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <ng-template [ngIf]="additionalPolicyNo">
+                          <label
+                            class="form-label"
+                            for="additional-no-pplication"
+                            >Additional Policy no</label
+                          >
+                          <input
+                            class="form-control"
+                            id="additional-no-pplication"
+                            type="text"
+                            placeholder="Additional to application or policy no"
+                            formControlName="A1"
+                          />
+                        </ng-template>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="complete"
+                          >Internal cancellation and replacement
+                          <strong>(complete)</strong></label
+                        >
+                        <select
+                          class="form-select form-select-small mb-3"
+                          id="complete"
+                          aria-label=".form-select-small example"
+                          formControlName="complete"
+                          (change)="selectComplete($event)"
+                        >
+                          <option value="" selected disabled>
+                            --Select option--
+                          </option>
+                          <option value="">N/A</option>
+                          <option value="ANNULATION_INTEGRAL_OUI_NON_y">
+                            Yes
+                          </option>
+                          <option value="ANNULATION_INTEGRAL_OUI_NON_n">
+                            No
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="partial"
+                          >Internal cancellation and replacement
+                          <strong>(partial)</strong></label
+                        >
+                        <div class="language-correspondence">
+                          <select
+                            class="form-select form-select-small mb-3"
+                            id="partial"
+                            aria-label=".form-select-small example"
+                            formControlName="partial"
+                            (change)="selectPartial($event)"
+                          >
+                            <option value="" selected disabled>
+                              --Select option--
+                            </option>
+                            <option value="">N/A</option>
+                            <option value="ANNULATION_PARTIEL_OUI_NON_y">
+                              Yes
+                            </option>
+                            <option value="ANNULATION_PARTIEL_OUI_NON_n">
+                              No
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="cancelled-policy"
+                          >Cancelled policy no</label
+                        >
+                        <input
+                          class="form-control"
+                          id="cancelled-policy"
+                          type="text"
+                          placeholder="Cancelled policy no"
+                          formControlName="A2"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="coverage-cancelled"
+                          >Coverage cancelled</label
+                        >
+                        <input
+                          class="form-control"
+                          id="coverage-cancelled"
+                          type="text"
+                          placeholder="Coverage cancelled"
+                          formControlName="A3"
+                        />
+                      </div>
+                      <div class="col-md-12">
+                        <div>
+                          <p class="p-2">
+                            <strong
+                              >The cancellation will be processed when the new
+                              coverage or new contract upon settling.</strong
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <hr />
+                      <div class="col-md-12">
+                        <div class="bg-white rounded-4 shadow">
+                          <p class="p-4">
+                            <strong
+                              >Policy changes requiring evidence of
+                              insurability.</strong
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="bg-color rounded-4 shadow">
+                          <p class="p-4 text-white">
+                            <strong
+                              >If the policy is not already governed by the tax
+                              rules in effect as of January 1 st 2017, certain
+                              changes that require evidence of insurability may
+                              cause a change to the tax rules applicable to the
+                              policy.</strong
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="bg-color rounded-4 shadow">
+                          <p class="p-4 text-white">
+                            <strong
+                              >If there is more than one policyowner, EACH
+                              policyowner must sign Section M of this
+                              application.</strong
+                            >For any addition of insured or addition of benefit
+                            on a policy, each insured and/or policyowner covered
+                            by Waiver of Premium on such policy must complete
+                            Sections I and J (use additional applications as
+                            required).
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="bg-white rounded-4 shadow">
+                          <p class="p-4">
+                            To request a policy change requiring evidence of
+                            insurability, complete the following sections of
+                            this application in accordance with the type of
+                            change requested
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-12 mb-5 policy mb-24">
+                        <button
+                          type="button"
+                          *ngIf="disable"
+                          class="btn btn-lg btn-success bg-color text-white float-end rounded-4 px-5 shadow"
+                          (click)="enableSelect_policy()"
+                        >
+                          Enable
+                        </button>
+                        <label class="form-label" for="policy"
+                          ><strong>Select Options</strong></label
+                        >
+                        <ng-select
+                          [multiple]="true"
+                          [items]="policiesData"
+                          bindLabel="name"
+                          bindValue="value"
+                          id="policy"
+                          class="ng-select-custom"
+                          placeholder="Select options"
+                          formControlName="policies"
+                          (change)="selectPolicy($event)"
+                        >
+                          <ng-template
+                            ng-option-tmp
+                            let-item="item"
+                            let-index="index"
+                          >
+                            <ng-option value="{{ item.value }}">
+                              <div style="margin: 10px 0" class="card">
+                                <div class="card-body">
+                                  <h6 class="card-subtitle mb-2">
+                                    {{ item.name }}
+                                  </h6>
+                                  <div class="select-width">
+                                    <p class="card-text">
+                                      {{ item.p1 }}
+                                    </p>
+                                    <p>
+                                      {{ item.p }}
+                                    </p>
+                                    <p class="card-text">
+                                      {{ item.p2 }}
+                                    </p>
+                                    <p class="card-text">
+                                      {{ item.p3 }}
+                                    </p>
+                                    <p class="card-text">
+                                      {{ item.p4 }}
+                                    </p>
+                                    <p class="card-text">
+                                      {{ item.p5 }}
+                                    </p>
+                                    <p class="card-text">
+                                      {{ item.p6 }}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </ng-option>
+                          </ng-template>
+                        </ng-select>
+                      </div>
+                      <hr />
+                      <div class="col-md-12">
+                        <h5>
+                          Amendments that do not require proof of insurability
+                        </h5>
+                        <div class="bg-white">
+                          <p class="p-2">
+                            For any change request that does not require proof
+                            of insurability, complete the form according to the
+                            type of modification requested
+                          </p>
+                        </div>
+                        <div class="bg-white">
+                          <p class="p-2">
+                            <b>(1) </b>
+                            <strong
+                              >Changes without evidence of insurability</strong
+                            >use the Policy change without evidence of
+                            insurability form (FIND0116A).
+                          </p>
+                          <p class="p-2">
+                            <b>(2) </b>
+                            <strong>Change of beneficiary</strong>use the Change
+                            of beneficiary(ies) form (FIND0205A).
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

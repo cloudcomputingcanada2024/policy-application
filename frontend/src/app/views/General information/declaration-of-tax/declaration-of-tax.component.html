@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-8">
+    <div class="card rounded-4 shadow" style="margin-bottom: 12rem;">
+      <div class="card-header">
+        <strong
+          >Declaration of tax residence of policyowner(s)
+          (self-certification)</strong
+        >
+        <p>
+          (applicable to whole life insurance, enhanced term-100 life insurance
+          and universal life insurance products)
+        </p>
+      </div>
+      <div class="card-header bg-white p-4">
+        <div class="col-md-12 mb-4">
+          <div class="bg-light p-4 rounded-4 shadow">
+            <p class="bg-light p-2">
+              The insured(s) and the policyowner(s) must be tax residents of
+              Canada in order for an insurance policy to be issued. The
+              information provided in the Declaration of Tax Residence section
+              must be correct and complete. The policyowner(s) must provide
+              Beneva Inc. with a new tax residence declaration within 30 days of
+              any change in circumstances that causes the information on this
+              form to become incomplete or inaccurate (e.g., changing a bank
+              account for one in a financial institution in a country other than
+              Canada, changing an address for an address in a country other than
+              Canada, etc.)y.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="bg-color p-4 rounded-4 shadow">
+            <strong>
+              <span class="text-white">
+                The policyowner is a corporation or other type of entity
+              </span>
+            </strong>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="example">
+          <div class="tab-content rounded-bottom">
+            <div class="bg-white p-4 rounded-4 shadow mb-4">
+              <p>
+                For
+                <strong>
+                  whole life insurance or enhanced term-100 life
+                  insurance,</strong
+                >
+                the Declaration of Tax Residence must be completed on the form
+                Declaration of Tax Residence (Self-Certification) – Entity
+                (FRA1748A).
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-4 shadow mb-2">
+              <p>
+                For
+                <strong> universal life insurance,</strong> the Declaration of
+                Tax Residence must be completed on the form Verification of the
+                Idendity of Corporations and Other Entities (FRA1235A).
+              </p>
+            </div>
+            <div
+              class="tab-pane p-3 active preview"
+              role="tabpanel"
+              id="preview-1000"
+            >
+              <form [formGroup]="form" (ngSubmit)="save()">
+                <div class="row g-3">
+                  <div class="col-md-12 mb-4">
+                    <button
+                      type="button"
+                      *ngIf="disableBtn"
+                      class="btn btn-lg btn-success text-white bg-color rounded-4 px-4 shadow float-end"
+                      (click)="enableSelect()"
+                    >
+                      Enable
+                    </button>
+
+                    <label class="form-label fw-bold" for="resident"
+                      >Select resident</label
+                    >
+                    <div class="resident-canada">
+                      <ng-select
+                        bindLabel="name"
+                        bindValue="id"
+                        id="resident"
+                        labelForId="form-label"
+                        [multiple]="true"
+                        placeholder="Select resident"
+                        clearAllText="Clear"
+                        formControlName="residents"
+                        (change)="selectResident($event)"
+                      >
+                        <ng-option value="N/A">N/A</ng-option>
+                        <ng-option value="Propriétaire_statut1">
+                          I am a tax resident of Canada
+                        </ng-option>
+                        <ng-option value="Propriétaire_statut3">
+                          I am a tax resident of a jurisdiction other than
+                          Canada</ng-option
+                        >
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-5">
+                    <strong
+                      >If you check this box, the form Declaration of Tax
+                      Residence (Self- Certification) – Individual (FRA1737A) is
+                      required.</strong
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

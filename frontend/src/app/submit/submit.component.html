@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <div class="card mb-24 rounded-4 shadow" style="height: 24rem">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>Data Submit</h5>
+          </div>
+          <div class="col-md-6">
+            <strong class="float-end"
+              >Download beneva policy application PDF file</strong
+            >
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="example">
+          <div class="tab-content rounded-bottom">
+            <div
+              class="tab-pane p-3 active preview"
+              role="tabpanel"
+              id="preview-1000"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <ngx-spinner
+                    bdColor="rgba(0, 0, 0, 0.8)"
+                    size="medium"
+                    color="#fff"
+                    type="ball-clip-rotate"
+                    [fullScreen]="false"
+                  >
+                    <p
+                      style="
+                        color: white;
+                        margin-bottom: 140px;
+                        font-size: 20px;
+                      "
+                    >
+                      processing...
+                    </p></ngx-spinner
+                  >
+                  <div
+                    class="d-flex align-items-center justify-content-center shadow-lg p-4 mb-5 bg-light rounded-4 border border-5"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-success bg-color text-white rounded-pill px-5"
+                      (click)="submit()"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-center justify-content-center shadow-lg p-4 mb-5 bg-light rounded-4 border border-5"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-lg btn-success bg-color text-white rounded-pill px-4"
+                      (click)="downloadPdf()"
+                    >
+                      <div
+                        class="d-flex align-items-center justify-content-between gap-2"
+                      >
+                        <ng-template
+                          [ngIf]="isLoading"
+                          [ngIfElse]="isDownloadIcon"
+                        >
+                          <span
+                            class="spinner-border spinner-border-sm btn-loading"
+                            role="status"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Loading...</span>
+                        </ng-template>
+                        <ng-template #isDownloadIcon>
+                          <svg
+                            xmlns:href="./assets/icons/download-icon.svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-download"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
+                            />
+                            <path
+                              d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"
+                            />
+                          </svg>
+                        </ng-template>
+
+                        Download
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,191 @@
+<div class="row">
+  <div class="col-8">
+    <div class="card mb-4 rounded-4 shadow">
+      <div class="card-header">
+        <strong>Employment Details</strong>
+      </div>
+      <div class="card-body">
+        <div class="example">
+          <div class="tab-content rounded-bottom">
+            <div
+              class="tab-pane p-3 active preview"
+              role="tabpanel"
+              id="preview-1000"
+            >
+              <form [formGroup]="form" (ngSubmit)="save()" class="row g-3">
+                <div class="col-md-12">
+                  <label class="form-label" for="current-employer"
+                    >Profession/Occupation and years of service (current
+                    employer) – provide details (if retired, indicate the last
+                    profession and field of activity)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="current-employer"
+                    type="text"
+                    placeholder="(current employer)"
+                    formControlName="PROFESSION ET NOMBRE DANNÉES DE SERVICE"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="employment-status"
+                    >Tasks involved in occupation, and employment status (e.g.
+                    employee, executive, owner, self-employed, etc.)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="employment-status"
+                    type="text"
+                    placeholder="(e.g. employee, executive, owner, self-employed, etc.)"
+                    formControlName="FONCTIONS DE LEMPLOI"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="employer-business"
+                    >Nature of employer’s business</label
+                  >
+                  <input
+                    class="form-control"
+                    id="employer-business"
+                    type="text"
+                    placeholder="Nature of employer’s business"
+                    formControlName="NATURE DE LENTREPRISE DE LEMPLOYEUR"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="annual-income"
+                    >Gross annual income</label
+                  >
+                  <input
+                    class="form-control"
+                    id="annual-income"
+                    type="number"
+                    placeholder="$"
+                    formControlName="REVENU ANNUEL BRUT"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="net-worth">Net worth</label>
+                  <input
+                    class="form-control"
+                    id="net-worth"
+                    type="number"
+                    placeholder="$"
+                    formControlName="VALEUR NETTE DES ACTIFS"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="other-income"
+                    >Other income</label
+                  >
+                  <input
+                    class="form-control"
+                    id="other-income"
+                    type="number"
+                    placeholder="$"
+                    formControlName="AUTRE REVENU"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="specify-source"
+                    >Specify source</label
+                  >
+                  <input
+                    class="form-control"
+                    id="specify-source"
+                    type="text"
+                    placeholder="Specify source"
+                    formControlName="AUTRE REVENU SOURCE"
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label" for="employer-name"
+                    >Employer’s name</label
+                  >
+                  <input
+                    class="form-control"
+                    id="employer-name"
+                    type="text"
+                    placeholder="Employer’s name"
+                    formControlName="NOM DE LEMPLOYEUR"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label" for="street-name"
+                    >Civic number and street name</label
+                  >
+                  <input
+                    class="form-control"
+                    id="street-name"
+                    type="text"
+                    placeholder="Civic number and street name"
+                    formControlName="NUMÉRO CIVIQUE ET NOM DE LA RUE_5"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="suite-number"
+                    >Suite number</label
+                  >
+                  <input
+                    class="form-control"
+                    id="suite-number"
+                    type="text"
+                    placeholder="Suite number"
+                    formControlName="NUMÉRO DE BUREAU"
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label" for="city">City</label>
+                  <input
+                    class="form-control"
+                    id="city"
+                    type="text"
+                    placeholder="City"
+                    formControlName="VILLE_5"
+                  />
+                </div>
+
+                <div class="col-md-8">
+                  <label class="form-label" for="province">Province</label>
+                  <input
+                    class="form-control"
+                    id="province"
+                    type="text"
+                    placeholder="Province"
+                    formControlName="PROVINCE_5"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="postal-code"
+                    >Postal code</label
+                  >
+                  <input
+                    class="form-control"
+                    id="postal-code"
+                    type="text"
+                    placeholder="Postal Code"
+                    formControlName="CODE POSTAL_5"
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label" for="telephone"
+                    >Telephone (residential)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="telephone"
+                    type="tel"
+                    placeholder="(e.g. 6045555555)"
+                    formControlName="TÉLÉPHONE TRAVAIL"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

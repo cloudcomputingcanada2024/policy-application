@@ -1,0 +1,349 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="bg-white p-4 rounded-4 shadow">
+      <div>
+        <p>
+          <b>(1)</b>
+          The first name and last name will appear on the insurance contract as
+          indicated in this section.
+        </p>
+      </div>
+      <div>
+        <p>
+          <b>(2)</b>
+          Note regarding life and critical illness insurance for children:
+          children are insured from the age of fifteen (15) days for life
+          insurance and thirty (30) days for critical illness insurance
+        </p>
+      </div>
+      <div>
+        <p>
+          <b>(3)</b>
+          When the address of the insured 2 is not indicated, we consider that
+          it corresponds to that of the insured 1.
+        </p>
+      </div>
+      <div>
+        <p>
+          <b>(4)</b>
+          When the insured and the policyowner are the same person, the insured
+          must be a Canadian resident.
+        </p>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="save()" class="row g-3">
+    <div class="col-6">
+      <div class="card mb-4 rounded-4 shadow">
+        <div class="card-header">
+          <strong>Proposed insured(s)</strong>
+        </div>
+        <div class="card-body">
+          <div class="example">
+            <div class="tab-content rounded-bottom">
+              <div
+                class="tab-pane p-3 active preview"
+                role="tabpanel"
+                id="preview-1000"
+              >
+                <div class="md-3">
+                  <div class="row">
+                    <div class="example">
+                      <div class="mb-3">
+                        <select
+                          (change)="selectGenderNatural($event)"
+                          class="form-select form-select-lg mb-3"
+                          aria-label=".form-select-lg example"
+                          formControlName="selectNameAbbr"
+                        >
+                          <option value="" selected disabled>
+                            --Select gender natural--
+                          </option>
+                          <option value="">N/A</option>
+                          <option value="Assure_verif_mr">Mr.</option>
+                          <option value="Assure_verif_mrs">Mrs.</option>
+                          <option value="Assure_verif_ms">Ms.</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="first-name">First name</label>
+                  <input
+                    class="form-control"
+                    id="first-name"
+                    type="firstName"
+                    placeholder="First name"
+                    formControlName="PRÉNOM"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="last-name">Last name</label>
+                  <input
+                    class="form-control"
+                    id="last-name"
+                    type="text"
+                    placeholder="Last name"
+                    formControlName="NOM"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="name-at-birth"
+                    >Name at birth (if different)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="name-at-birth"
+                    type="text"
+                    placeholder="Name at birth"
+                    formControlName="NOM À LA NAISSANCE si différent"
+                  />
+                </div>
+                <div class="md-3">
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <div class="form-check-inline age-input-control">
+                        <label class="form-label" for="data-of-birth"
+                          >Date of birth</label
+                        >
+                        <input
+                          class="form-control"
+                          id="data-of-birth"
+                          type="date"
+                          formControlName="dateOfBirth"
+                          (change)="dobTransform($event)"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-check-inline">
+                        <label class="form-label" for="age">Age*</label>
+                        <input
+                          class="form-control"
+                          id="age"
+                          type="number"
+                          readonly
+                          placeholder="Your Age"
+                          formControlName="ÂGE"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-check-inline">
+                        <label class="form-label" for="gender">Gender</label>
+                        <select
+                          class="form-select form-select-medium mb-3"
+                          aria-label=".form-select-lg example"
+                          formControlName="gender"
+                          (change)="selectGender($event)"
+                        >
+                          <option value="" selected disabled>
+                            --Select gender--
+                          </option>
+                          <option value="">N/A</option>
+                          <option value="MASC_M">Male</option>
+                          <option value="MASC_F">Female</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="examples"></div>
+                  </div>
+                </div>
+                <div class="md-3 mt-3">
+                  <label class="form-label" for="place-of-birth"
+                    >Place of birth (country and city)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="place-of-birth"
+                    type="text"
+                    placeholder="Place of birth"
+                    formControlName="LIEU DE NAISSANCE ville et pays"
+                  />
+                </div>
+                <div class="md-3 mt-3">
+                  <div class="mb-2">
+                    <span
+                      >If you were born <strong>outside</strong> of Canada,
+                      complete the information below:</span
+                    >
+                  </div>
+
+                  <div
+                    class="d-flex align-items-end arrival-date-input-controle"
+                  >
+                    <label
+                      class="form-label me-2"
+                      for="arrival-date-input-controle"
+                      >Arrival date:</label
+                    >
+                    <input
+                      class="form-control"
+                      id="arrival-date-input-controle"
+                      type="date"
+                      placeholder="Place of birth"
+                      formControlName="arrivalDate"
+                      (change)="arrivalDateTransform($event)"
+                    />
+                  </div>
+                </div>
+                <div class="md-3 mt-3">
+                  <div class="status-label">
+                    <div>
+                      <label class="form-label">Legal status in Canada:</label>
+                    </div>
+                    <div class="legal-status">
+                      <select
+                        class="form-select form-select-lg mb-3"
+                        aria-label=".form-select-lg example"
+                        formControlName="statusLegal"
+                        (change)="selectStatus($event)"
+                      >
+                        <option value="" selected disabled>
+                          --Select status--
+                        </option>
+                        <option value="">N/A</option>
+                        <option value="Statut légal_coche1">
+                          Canadian citizen
+                        </option>
+                        <option value="Statut légal_coche2">
+                          Permanent resident (holds a permanent resident card)
+                        </option>
+                        <option value="Statut légal_coche3">
+                          Work permit (attach a copy of the work permit)
+                        </option>
+                        <option value="Statut légal_coche4">Refugee</option>
+                        <option value="Statut légal_coche5">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3" *ngIf="otherSelected">
+                  <label class="form-label" for="specify"
+                    >(specify): (attach a letter from Citizenship and
+                    Immigration Canada confirming the permanent residence
+                    request)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="specify"
+                    type="text"
+                    placeholder="Specify"
+                    formControlName="AUTRE précisez"
+                  />
+                  <div class="mt-2">
+                    <span
+                      >* Age at nearest birthday, that is six (6) months before
+                      or after the date the application is signed.</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card mb-4 rounded-4 shadow">
+        <div class="card-header">
+          <strong>Residential Address</strong>
+        </div>
+        <div class="card-body">
+          <div class="example">
+            <div class="tab-content rounded-bottom">
+              <div
+                class="tab-pane p-3 active preview"
+                role="tabpanel"
+                id="preview-1000"
+              >
+                <div class="row g-3">
+                  <div class="col-md-8">
+                    <label class="form-label" for="street-name"
+                      >Civic number and street name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="street-name"
+                      placeholder="Civic number"
+                      formControlName="NUMÉRO CIVIQUE ET NOM DE LA RUE"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="apt">Apt.</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="apt"
+                      placeholder="Apt."
+                      formControlName="APP"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="city">City</label>
+                    <input
+                      class="form-control"
+                      id="city"
+                      type="text"
+                      placeholder="City"
+                      formControlName="VILLE"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <label class="form-label" for="province">Province</label>
+                    <input
+                      class="form-control"
+                      id="province"
+                      type="text"
+                      placeholder="Province"
+                      formControlName="PROVINCE"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="postal-code"
+                      >Postal code</label
+                    >
+                    <input
+                      class="form-control"
+                      id="postal-code"
+                      type="text"
+                      placeholder="Postal code"
+                      formControlName="CODE POSTAL"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label" for="telephone"
+                      >Telephone (residential)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="telephone"
+                      type="tel"
+                      placeholder="(e.g. 6045555555)"
+                      formControlName="TÉLÉPHONE RÉSIDENCE"
+                    />
+                  </div>
+
+                  <div class="col-md-12">
+                    <label class="form-label" for="email"
+                      >Email address (internet)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="email"
+                      type="email"
+                      placeholder="Email address"
+                      formControlName="ADRESSE COURRIEL internet"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

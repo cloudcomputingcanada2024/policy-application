@@ -1,0 +1,328 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="card mb-4 rounded-4 shadow">
+      <div class="card-header">
+        <strong>Policyowner(s)</strong>
+      </div>
+      <div class="card-header bg-white p-4">
+        <div class="col-md-12">
+          <div class="bg-light p-4 rounded-4 shadow">
+            <span>
+              <strong>
+                <p>
+                  <b>(1)</b>
+                  When the policyowner(s) is (are) not indicated, we consider
+                  that it corresponds to the insured(s) - Maximum 2 policyowners
+                  per policy.
+                </p>
+                <p>
+                  <b>(2)</b>
+                  For universal life insurance, when the policyowner is a
+                  corporation or another type of entity, complete the
+                  Verification of the Idendity of Corporations and Other
+                  Entities (FRA1235A) form.
+                </p>
+              </strong>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="example">
+          <div class="tab-content rounded-bottom">
+            <div
+              class="tab-pane p-3 active preview"
+              role="tabpanel"
+              id="preview-1000"
+            >
+              <form [formGroup]="form" (ngSubmit)="save()">
+                <div class="row g-3">
+                  <div class="col-md-12">
+                    <label for="form-label"
+                      ><strong> The policyowner(s) is (are) </strong></label
+                    >
+                    <p>
+                      <span
+                        >When the address of the policyowner 2 is different from
+                        that of the policyowner 1, we consider that the mailing
+                        address corresponds to that of the policyowner 1.</span
+                      >
+                    </p>
+                    <div class="col-12 mb-5 policy mb-24">
+                      <button
+                        type="button"
+                        *ngIf="disableBtn"
+                        class="btn btn-lg btn-success bg-color text-white float-end rounded-4 px-5 shadow"
+                        (click)="enableBtn()"
+                      >
+                        Enable
+                      </button>
+                      <label class="form-label" for="policy"
+                        ><strong>Select Options</strong></label
+                      >
+                      <ng-select
+                        [multiple]="true"
+                        [items]="insuredData"
+                        bindLabel="name"
+                        bindValue="value"
+                        id="policy"
+                        class="ng-select-custom"
+                        placeholder="Select options"
+                        formControlName="insured"
+                        (change)="selectInsured($event)"
+                      >
+                        <ng-template
+                          ng-option-tmp
+                          let-item="item"
+                          let-index="index"
+                        >
+                          <ng-option value="{{ item.value }}">
+                            <div style="margin: 10px 0" class="card">
+                              <div class="card-body">
+                                <h6 class="card-subtitle mb-2">
+                                  {{ item.name }}
+                                </h6>
+                              </div>
+                            </div>
+                          </ng-option>
+                        </ng-template>
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label" for="first-and-last-names"
+                      >First and last names or full legal name of company or
+                      other entity</label
+                    >
+                    <input
+                      class="form-control"
+                      id="first-and-last-names"
+                      type="text"
+                      placeholder="(e.g. John doe)"
+                      formControlName="PRÉNOM ET NOM OU DÉNOMINATION SOCIALE SI PERSONNE MORALE OU AUTRE ENTITÉ"
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="relationship-to-insured"
+                      >Relationship to insured</label
+                    >
+                    <input
+                      class="form-control"
+                      id="relationship-to-insured"
+                      type="text"
+                      placeholder="Relationship to insured"
+                      formControlName="LIEN AVEC LASSURÉ"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="business-number"
+                      >Business number (if applicable)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="business-number"
+                      type="text"
+                      placeholder="Business number (if applicable)"
+                      formControlName="NUMÉRO DENTREPRISE sil y a lieu"
+                    />
+                  </div>
+                  <div class="col-md-9">
+                    <label class="form-label" for="residential-address"
+                      >Residential address (policyowner must be a Canadian
+                      resident)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="residential-address"
+                      type="text"
+                      placeholder="Residential address (policyowner must be a Canadian resident)"
+                      formControlName="ADRESSE"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label" for="telephone">Telephone </label>
+                    <input
+                      class="form-control"
+                      id="telephone"
+                      type="tel"
+                      placeholder="(e.g. 6045555555)"
+                      formControlName="TÉLÉPHONE"
+                    />
+                  </div>
+                  <hr />
+                  <div class="col-md-12">
+                    <strong>Complete for universal life insurance</strong>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label" for="principal-business"
+                      >Principal business or detailed occupation and field of
+                      activity (if retired, indicate the last profession and
+                      field of activity)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="principal-business"
+                      type="text"
+                      placeholder="Principal business or detailed occupation"
+                      formControlName="PROFESSION"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label" for="name-of-employer"
+                      >Name of employer</label
+                    >
+                    <input
+                      class="form-control"
+                      id="name-of-employer"
+                      type="text"
+                      placeholder="Name of employer"
+                      formControlName="Nom de l'employeur 1"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label" for="employment-status"
+                      >Employment status (e.g. employee, executive, owner,
+                      self-employed, etc.)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="employment-status"
+                      type="text"
+                      placeholder="Employment status (e.g. employee, executive, owner, self-employed, etc.)"
+                      formControlName="Statut d'emploi 1"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="data-of-birth"
+                      >Date of birth</label
+                    >
+                    <input
+                      class="form-control"
+                      id="data-of-birth"
+                      type="date"
+                      formControlName="dob"
+                      (change)="dobTransform($event)"
+                    />
+                  </div>
+                  <hr />
+                  <div class="col-md-12">
+                    <strong>Complete if Waiver of Premium is requested</strong>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="data-of-birth-premium"
+                      >Date of birth</label
+                    >
+                    <input
+                      class="form-control"
+                      id="data-of-birth-premium"
+                      type="date"
+                      formControlName="dobAge"
+                      (change)="dobAgeTransform($event)"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="place-of-birth"
+                      >Place of birth</label
+                    >
+                    <input
+                      class="form-control"
+                      id="place-of-birth"
+                      type="text"
+                      placeholder="Place of birth"
+                      formControlName="LIEU DE NAISSANCE"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="age">Age*</label>
+                    <input
+                      class="form-control"
+                      id="age"
+                      type="number"
+                      readonly
+                      placeholder="Your Age"
+                      formControlName="ÂGE_3"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="sex">Sex</label>
+                    <select
+                      class="form-select form-select-small mb-3"
+                      aria-label=".form-select-small example"
+                      id="sex"
+                      formControlName="gender"
+                      (change)="selectGender($event)"
+                    >
+                      <option value="" selected disabled>
+                        --Select gender--
+                      </option>
+                      <option value="">N/A</option>
+                      <option value="Propriétaire_sexe_M">Male.</option>
+                      <option value="Propriétaire_sexe_F">Female.</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <span
+                      >*Age at nearest birthday, that is six (6) months before
+                      or after the application.</span
+                    >
+                  </div>
+                  <div class="col-md-12 p-4 bg-white rounded-4 shadow">
+                    <span
+                      >Upon the death of a policyowner, the rights and interests
+                      of such deceased policyowner in the policy shall be
+                      transferred to the contingent/successor policyowner
+                      designated in this section.</span
+                    >
+                  </div>
+                  <div class="col-md-12">
+                    <label
+                      class="form-label"
+                      for="first-and-last-names-contingent"
+                      >First and last name of contingent/successor policyowner
+                      1</label
+                    >
+                    <input
+                      class="form-control"
+                      id="first-and-last-names-contingent"
+                      type="text"
+                      placeholder="First and last name of contingent/successor policyowner 1"
+                      formControlName="PRÉNOM ET NOM DU PROPRIÉTAIRE SUBSIDIAIRESUCCESSEUR 1"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label
+                      class="form-label"
+                      for="relationship-to-insured-contingent"
+                      >Relationship to insured</label
+                    >
+                    <input
+                      class="form-control"
+                      id="relationship-to-insured-contingent"
+                      type="text"
+                      placeholder="Relationship to insured"
+                      formControlName="LIEN AVEC LASSURÉ_3"
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="data-of-birth-rel"
+                      >Date of birth</label
+                    >
+                    <input
+                      class="form-control"
+                      id="data-of-birth-rel"
+                      type="date"
+                      formControlName="dobRel"
+                      (change)="dobRelTransform($event)"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

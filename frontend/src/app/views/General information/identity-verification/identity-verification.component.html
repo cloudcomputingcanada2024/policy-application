@@ -1,0 +1,322 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-7">
+          <div class="card mb-24 rounded-4 shadow">
+            <div class="card-header">
+              <div class="col-md-12">
+                <h5>Identity verification</h5>
+              </div>
+            </div>
+            <div class="card-header bg-white p-4">
+              <div class="col-md-12">
+                <div class="bg-light p-4 rounded-4 shadow mb-4">
+                  <div>
+                    <p>
+                      <b>(1) </b>
+                      <strong>At all times for all product types:</strong>
+                      The financial security advisor/representative must verify
+                      the identity of each
+                      <strong>insured.</strong>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(2) </b>
+                      <strong>For universal life (UL) insurance:</strong>f the
+                      policyowner is different from the insured, the financial
+                      security advisor/representative must verify the identity
+                      of each <strong>policyowner</strong> as required by the
+                      Proceeds of Crime (Money Laundering) and Terrorist
+                      Financing Act (the Act)
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <b>(3) </b>
+                      <strong
+                        >How are you verifying the identity of each insured (at
+                        all times for all product types) and each policyowner
+                        (for UL insurance, if different from the
+                        insured)?</strong
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="example">
+                <div class="tab-content rounded-bottom">
+                  <div
+                    class="tab-pane p-3 active preview"
+                    role="tabpanel"
+                    id="preview-1000"
+                  >
+                    <div class="row g-3">
+                      <div class="col-md-12 mb-4">
+                        <button
+                          type="button"
+                          *ngIf="disableBtn"
+                          class="btn btn-lg btn-success text-white bg-color rounded-4 px-4 shadow float-end"
+                          (click)="enableSelect()"
+                        >
+                          Enable
+                        </button>
+
+                        <label class="form-label fw-bold" for="identity"
+                          >Select the option that apply</label
+                        >
+                        <div class="identity-select-option policy">
+                          <ng-select
+                            [items]="identitiesData"
+                            bindLabel="name"
+                            bindValue="value"
+                            id="identity"
+                            labelForId="form-label"
+                            [multiple]="true"
+                            placeholder="Select options"
+                            clearAllText="Clear"
+                            formControlName="identities"
+                            (change)="selectIdentity($event)"
+                          >
+                            <ng-template
+                              ng-option-tmp
+                              let-item="item"
+                              let-index="index"
+                            >
+                              <ng-option value="{{ item.value }}">
+                                <div class="card">
+                                  <div class="card-body text-wrap">
+                                    <h6 class="card-subtitle mb-2">
+                                      {{ item.name }}
+                                    </h6>
+                                    <p class="card-text">{{ item.p }}</p>
+                                  </div>
+                                </div>
+                              </ng-option>
+                            </ng-template>
+                          </ng-select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <label class="form-label" for="name-of-insured-document"
+                          >Name of the insured (as appearing on the
+                          document)</label
+                        >
+                        <input
+                          class="form-control"
+                          id="name-of-insured-document"
+                          type="text"
+                          placeholder="Name of the insured (as appearing on the document)"
+                          formControlName="NOM DE ASSURÉ 1  DE LA PERSONNE AUTORISÉE"
+                        />
+                      </div>
+                      <div class="col-md-12">
+                        <label class="form-label" for="document"
+                          >Select document</label
+                        >
+                        <select
+                          class="form-select form-select-small mb-3"
+                          id="document"
+                          aria-label=".form-select-small example"
+                          formControlName="documents"
+                          (change)="selectDocument($event)"
+                        >
+                          <option value="" selected disabled>
+                            --Select document--
+                          </option>
+                          <option value="">N/A</option>
+                          <option value="Assure_verif_1">
+                            Driver’s licence
+                          </option>
+                          <option value="Assure_verif_p_2">Passport</option>
+                          <option value="Assure_verif_3">
+                            Citizenship card with photo
+                          </option>
+                          <option value="Assure_verif_4">
+                            Other photo identification document admissible by
+                            Law (specify):
+                          </option>
+                        </select>
+                      </div>
+                      <ng-template [ngIf]="otherSpecify">
+                        <div class="col-md-12">
+                          <label class="form-label" for="specify"
+                            >Specify</label
+                          >
+                          <input
+                            class="form-control"
+                            id="specify"
+                            type="text"
+                            placeholder="Specify"
+                            formControlName="VERIF_ID-1_assure_1"
+                          />
+                        </div>
+                      </ng-template>
+
+                      <div class="col-md-6">
+                        <label class="form-label" for="document-number"
+                          >Document number</label
+                        >
+                        <input
+                          class="form-control"
+                          id="document-number"
+                          type="text"
+                          placeholder="Document number"
+                          formControlName="NUMÉRO DU DOCUMENT Assure 1"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label" for="Jurisdiction"
+                          >Jurisdiction</label
+                        >
+                        <input
+                          class="form-control"
+                          id="Jurisdiction"
+                          type="text"
+                          placeholder="Jurisdiction"
+                          formControlName="TERRITOIRE DE COMPÉTENCE Assure 1"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label class="form-label" for="document-expiration"
+                          >Document expiration date</label
+                        >
+                        <input
+                          class="form-control"
+                          id="document-expiration"
+                          type="date"
+                          formControlName="dEpxDate"
+                          (change)="documentExperirationDateTransform($event)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="card mb-24 rounded-4 shadow">
+            <div class="card-header">
+              <div class="col-md-12">
+                <strong>
+                  Complete the Identity verification for each policyowner, if
+                  not an insured (applicable to universal life insurance).
+                </strong>
+              </div>
+            </div>
+            <div class="card-header">
+              <div class="col-md-12">
+                <h5>Identity verification (continued)</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="example">
+                <div class="row g-3">
+                  <div class="col-md-12">
+                    <label
+                      class="form-label"
+                      for="name-of-insured-document-continued"
+                      >Name of the insured (as appearing on the document)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="name-of-insured-document-continued"
+                      type="text"
+                      placeholder="Name of the insured (as appearing on the document)"
+                      formControlName="NOM DU PROPRIÉTAIRE  DE LA PERSONNE AUTORISÉE"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <label class="form-label" for="document-continued"
+                      >Document</label
+                    >
+                    <select
+                      class="form-select form-select-small mb-3"
+                      aria-label=".form-select-small example"
+                      id="document-continued"
+                      formControlName="documentsContinue"
+                      (change)="selectDocumentContinue($event)"
+                    >
+                      <option value="" selected disabled>
+                        --Select document--
+                      </option>
+                      <option value="">N/A</option>
+                      <option value="Assure_verif_c_1">Driver’s licence</option>
+                      <option value="Assure_verif_c_2">Passport</option>
+                      <option value="Assure_verif_c_3">
+                        Citizenship card with photo
+                      </option>
+                      <option value="Assure_verif_c_4">
+                        Other photo identification document admissible by Law
+                        (specify):
+                      </option>
+                    </select>
+                  </div>
+
+                  <ng-template [ngIf]="otherSpecifyConinue">
+                    <div class="col-md-12">
+                      <label class="form-label" for="specify-continued"
+                        >Specify</label
+                      >
+                      <input
+                        class="form-control"
+                        id="specify-continued"
+                        type="text"
+                        placeholder="Specify"
+                        formControlName="VERIF_ID_AUTRE_1-1"
+                      />
+                    </div>
+                  </ng-template>
+                  <div class="col-md-6">
+                    <label class="form-label" for="document-number-continued"
+                      >Document number</label
+                    >
+                    <input
+                      class="form-control"
+                      id="document-number-continued"
+                      type="text"
+                      placeholder="Document number"
+                      formControlName="NUMÉRO DU DOCUMENT"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="Jurisdiction-continued"
+                      >Jurisdiction</label
+                    >
+                    <input
+                      class="form-control"
+                      id="Jurisdiction-continued"
+                      type="text"
+                      placeholder="Jurisdiction"
+                      formControlName="TERRITOIRE DE COMPÉTENCE"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label
+                      class="form-label"
+                      for="document-expiration-continued"
+                      >Document expiration date</label
+                    >
+                    <input
+                      class="form-control"
+                      id="document-expiration-continued"
+                      type="date"
+                      formControlName="dEpxDateC"
+                      (change)="documentExperirationDateCTransform($event)"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+  <app-sidebar></app-sidebar>
+</div>
+
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+  <ngx-loading-bar
+    ref="http"
+    [includeSpinner]="false"
+    [color]="'#2eb85c'"
+    [height]="'7px'"
+  ></ngx-loading-bar>
+  <app-header></app-header>
+  <div class="body flex-grow-1 px-3">
+    <div class="container-lg">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

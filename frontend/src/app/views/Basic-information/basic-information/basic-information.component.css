@@ -1,0 +1,16 @@
+.select-width {
+  width: 100px !important;
+}
+.select-value-visible {
+  display: none;
+}
+.disabled-options {
+  color: #999; /* Apply your desired styling for disabled options */
+  pointer-events: none; /* Disable pointer events for the disabled option */
+}
+
+.mb-24 {
+  margin-bottom: 7rem !important;
+}
+
+
